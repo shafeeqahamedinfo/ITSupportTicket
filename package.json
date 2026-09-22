@@ -1,0 +1,33 @@
+{
+  "name": "smartcampus-itcare",
+  "version": "1.0.0",
+  "description": "Smart Campus IT Support & Ticket Management System - Final Year CSE Project",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "build:client": "npm install --prefix client && npm run build --prefix client",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client"
+  },
+  "keywords": [
+    "mern",
+    "ticket-management",
+    "it-support",
+    "smart-campus",
+    "react",
+    "express",
+    "mongodb",
+    "socketio"
+  ],
+  "author": "CSE Final Year Project Team",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}

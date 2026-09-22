@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: it-support-ticket-management-system
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: .
+    buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
+    startCommand: node server/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CLIENT_URL
+        value: https://it-support-ticket-management-system.onrender.com
+      - key: MONGO_URI
+        sync: false   # Set this in Render dashboard manually (sensitive)
+      - key: JWT_SECRET
+        sync: false   # Set this in Render dashboard manually (sensitive)
+      - key: SLA_CRITICAL_HOURS
+        value: 2
+      - key: SLA_HIGH_HOURS
+        value: 6
+      - key: SLA_MEDIUM_HOURS
+        value: 24
+      - key: SLA_LOW_HOURS
+        value: 72
